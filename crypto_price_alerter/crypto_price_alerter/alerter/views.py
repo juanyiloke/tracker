@@ -27,7 +27,7 @@ values = [3765.0]
 
 
 
-def alert_process(parsed_data=None, password='***REMOVED***', email='lokejuanyi@gmail.com'):
+def alert_process(parsed_data=None, password='test', email='test'):
     """
     takes parsed data and sends an alert to specified email that ticker in parsed data has hit a
     specific ask price in the parsed_data, then removes the visibility of the ticker alert
@@ -98,13 +98,13 @@ async def receive_required_data():
                         ask_price = parsed_data['asks'][0]['price']
                         print(f'Ask price for {ticker} at {ask_price}')
                         if parse_ask_price(ask_price) == value:
-                            alert_process(parsed_data, '***REMOVED***')
+                            alert_process(parsed_data, 'TEST')
                     print(parsed_data)
                     return parsed_data
 
 
 if __name__ == "__main__":
-    alert_process('NULL','***REMOVED***')
+    alert_process('NULL','TEST')
     # while True:
     #     asyncio.run(receive_required_data())
     #     # time.sleep(5)
